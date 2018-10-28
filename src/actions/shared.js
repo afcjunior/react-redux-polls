@@ -11,7 +11,7 @@
 import { getInitialData } from '../utils/api'
 import { receivePolls } from './polls'
 import { receiveUsers } from './users'
-import { setAuthUser } from './authedUser'
+import { setAuthedUser } from './authedUser'
 
 //mocks one of the users in our mock DB as being authenticated.
 const AUTHED_ID = 'dan_abramov'
@@ -23,7 +23,7 @@ export function fetchInitialData(){
       .then(({ users, polls })=>{
         dispatch(receiveUsers(users))
         dispatch(receivePolls(polls))
-        dispatch(setAuthUser(AUTHED_ID))
+        dispatch(setAuthedUser(AUTHED_ID))
 
       })
   }

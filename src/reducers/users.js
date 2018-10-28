@@ -6,7 +6,7 @@ export default function users (state = {}, action){
       return {
         ...state,
         ...action.users
-      }//return state.concat(action.users)
+      }
 
     default :
       return state

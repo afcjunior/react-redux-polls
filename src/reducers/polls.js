@@ -6,7 +6,7 @@ export default function polls(state = {}, action){
       return {
         ...state,
         ...action.polls
-      }// would return state.concat(action.polls) return the same?
+      }
 
     default :
       return state

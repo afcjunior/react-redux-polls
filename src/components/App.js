@@ -1,22 +1,26 @@
 import React, { Component } from 'react'
-import { getInitialData } from '../utils/api'
+import { fetchInitialData } from '../actions/shared'
+import { connect } from 'react-redux'
+import Dashboard from './Dashboard'
 class App extends Component {
 
-  // componentDidMount(){
-  //   getInitialData()
-  //     .then((database) => {
-  //       const polls = database.polls
-  //       const users = database.users
-  //       console.log('Users: ', users )
-  //     })
-  // }
+  componentDidMount(){
+    this.props.dispatch(fetchInitialData())
+  }
+
   render() {
     return (
       <div>
-        Starter Code.
+        {
+          this.props.loading === true ? null : <Dashboard />
+        }
       </div>
     )
   }
 }
-
-export default App
+function mapStateToProps ({ authedUser }){
+  return{
+    loading: authedUser === null //will be true when authed user is null
+  }
+}
+export default connect(mapStateToProps)(App)
