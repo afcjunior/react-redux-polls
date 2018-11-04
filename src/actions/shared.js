@@ -4,7 +4,8 @@ import { receiveUsers } from './users'
 import { setAuthedUser } from './authedUser'
 import { showLoading, hideLoading} from 'react-redux-loading'
 //mocks one of the users in our mock DB as being authenticated.
-const AUTHED_ID = 'dan_abramov'
+const AUTHED_ID = 'tylermcginnis'
+//const AUTHED_ID = 'dan_abramov'
 
 //will be a thunk
 export function fetchInitialData(){

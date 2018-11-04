@@ -5,7 +5,6 @@ function Leaderboard ({ users, }) {
   console.log(users)
   return(
     <div>
-      <h1>LEADERBOARD</h1>
       <ul>
       {users.map((user)=>(
         <li className='user' key={user.id}>

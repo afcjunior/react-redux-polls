@@ -42,8 +42,7 @@ class AddPoll extends Component{
     console.log('Handlesubmit', this.state)
 
     this.props.dispatch(handleAddPoll(this.state))
-    //todo
-    //redirect to homepage /w react-router later on
+    this.props.history.push('/')
   }
 
 
@@ -138,9 +137,10 @@ class AddPoll extends Component{
   }
 }
 
-function mapStateToProps({ }){
-  return {
+// dont need this here as this component doesnt need any state from the store. It does need dispatch though, so we will connect it.
+// function mapStateToProps({ }){
+//   return {
 
-  }
-}
-export default connect(mapStateToProps)(AddPoll)
+//   }
+// }
+export default connect()(AddPoll)

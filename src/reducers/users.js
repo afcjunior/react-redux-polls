@@ -1,5 +1,6 @@
 import { RECEIVE_USERS } from '../actions/users'
 import { ADD_POLL } from '../actions/polls'
+import { ADD_ANSWER } from '../actions/answers'
 
 export default function users (state = {}, action){
   switch(action.type){
@@ -8,11 +9,9 @@ export default function users (state = {}, action){
         ...state,
         ...action.users
       }
-
     case ADD_POLL :
       const poll = action.poll
       const { author, id } = poll
-
       return {
         ...state,
         [author]: {
@@ -20,7 +19,16 @@ export default function users (state = {}, action){
           polls: state[author].polls.concat([id])
         }
       }
+      case ADD_ANSWER :
+        const user = state[action.authedUser]
 
+        return{
+          ...state,
+          [action.authedUser]:{
+            ...user,
+            answers: user.answers.concat([action.id]) //keep everything as before, but add the poll id to the answer list.
+          }
+        }
     default :
       return state
   }
